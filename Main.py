@@ -64,7 +64,7 @@ def jogar_forca():
                 else:
                     letras_digitadas.append(letra)
                     erros += 1
-                    
+
                     print(f"\nVocê errou, a letra {letra} não está na palavra!")
                     print(f"{"".join(palavra_jogo)}")
                     print(f"Você tem {erros} erros, você pode errar até 6 vezes.")
@@ -114,7 +114,7 @@ def jogar_forca():
         print()
         jogar_forca()
     else:
-        print("Fim de Jogo")
+        print("\n=== Fim de Jogo ===")
 
 
 if __name__ == "__main__":
