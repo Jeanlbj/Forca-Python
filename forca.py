@@ -36,11 +36,15 @@ def jogar_forca():
 
     while True:
 
-        opcao_menu = int(input("\nDigite a opção desejada: "))
+        print("\n============")
 
-        if opcao_menu == 1:
+        opcao_menu = str(input("\nDigite a opção desejada: "))
 
-            letra = str(input("\nDigite a letra: ")).upper()
+        if opcao_menu == "1":
+
+            letra = str(input("Digite a letra: ")).upper()
+
+            print("\n============")
 
             if letra in letras_digitadas:
                 print("Você já digitou essa letra")
@@ -74,15 +78,17 @@ def jogar_forca():
                         break
 
         else:
-            if opcao_menu == 2:
+            if opcao_menu == "2":
 
-                palavra = str(input("\nDigite a palavra: ")).upper()
+                palavra = str(input("Digite a palavra: ")).upper()
+
+                print("\n============")
 
                 if palavra == palavra_aleatoria:
                     palavra_jogo = palavra
 
-                    print(f"{"".join(palavra_jogo)}")
-                    print("\n=== Você ganhou! ====")
+                    print(f"\n{"".join(palavra_jogo)}")
+                    print("\n=== Você ganhou! ===")
                     break
                 else:
                     print(f"A palavra certa era {palavra_aleatoria}")
@@ -90,7 +96,7 @@ def jogar_forca():
                     break
 
             else:
-                if opcao_menu == 3 and acertos == 0:
+                if opcao_menu == "3" and acertos == 0:
 
                     acertos += 1
                     dica = palavra_aleatoria[random.randint(0, len(palavra_aleatoria) - 1)]
@@ -102,11 +108,13 @@ def jogar_forca():
                     print(f"\nA dica é a letra {dica}")
                     print(f"{"".join(palavra_jogo)}")
                 else:
-                    if opcao_menu == 3 and acertos > 0:
+                    if opcao_menu == "3" and acertos > 0:
 
-                        print("\nVocê não tem mais dicas")
+                        print("Você não tem mais dicas")
                     else:
-                        print("\nOpção errada, digite novamente")
+                        print("Opção errada, digite novamente como está no menu")
+
+    print("\n============")
 
     jogar_novamente = str(input("\nDeseja jogar novamente (S/N): ")).upper()
 
@@ -115,6 +123,7 @@ def jogar_forca():
         jogar_forca()
     else:
         print("\n=== Fim de Jogo ===")
+        print("Deselvolvimento: Jean Lucas de Andrade Barbosa")
 
 
 if __name__ == "__main__":
