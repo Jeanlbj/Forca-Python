@@ -1,23 +1,32 @@
 import random
-
-
-def escolha_palavra():
-    palavras = ["MAÇA", "BANANA", "LARANJA", "UVA", "MORANGO", "ABACAXI", "MELANCIA", "PERA", "KIWI", "LIMAO", "MANGA",
-                "PESSEGO", "MELAO", "CEREJA", "AMEIXA", "GOIABA", "ABACATE", "FIGO", "PITAYA", "FRAMBOESA"]
-    palavra_escolhida = palavras[random.randint(0, 19)]
-    return palavra_escolhida
-
-
-def menu():
-    print("\n=== Menu ===")
-    print("1 - Digitar Letra")
-    print("2 - Digitar Palavra")
-    print("3 - Dica (Caso não tenha descoberto nenhuma letra)")
-    print("============")
+from Model.CategoriaEscolha import CategoriaEscolha
+from Model.Menu import Menu
 
 
 def jogar_forca():
-    palavra_aleatoria = escolha_palavra()
+    menu = Menu()
+    categoria = CategoriaEscolha()
+
+    print("=== JOGO DA FORCA ===")
+
+    menu.menu_categoria()
+
+    flag_opcao = True
+
+    while flag_opcao is True:
+
+        opcao = int(input("\nEscolha o tipo de palavra conforme menu: "))
+        if opcao != 1 and opcao != 2:
+            print("Opção invalida, digite novamente.")
+
+        if opcao == 1:
+            palavra_aleatoria = categoria.escolha_aleatoria()
+            flag_opcao = False
+        else:
+            if opcao == 2:
+                palavra_aleatoria = categoria.escolha_categoria()
+                flag_opcao = False
+
     palavra_jogo = []
 
     for i in palavra_aleatoria:
@@ -26,17 +35,15 @@ def jogar_forca():
     erros = 0
     acertos = 0
 
-    print("=== JOGO DA FORCA ===")
-
-    menu()
+    menu.menu_jogo()
 
     print(f"\nPalavra: {"".join(palavra_jogo)}, contém {len(palavra_jogo)} letras")
+
+    print("\n============")
 
     letras_digitadas = []
 
     while True:
-
-        print("\n============")
 
         opcao_menu = str(input("\nDigite a opção desejada: "))
 
@@ -113,6 +120,8 @@ def jogar_forca():
                         print("Você não tem mais dicas")
                     else:
                         print("Opção errada, digite novamente como está no menu")
+
+        menu.menu_jogo()
 
     print("\n============")
 
