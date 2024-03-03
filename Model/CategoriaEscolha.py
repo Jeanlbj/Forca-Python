@@ -43,9 +43,7 @@ class CategoriaEscolha:
 
         self.exibir_categorias()
 
-        flag_categoria = True
-
-        while flag_categoria is True:
+        while True:
 
             opcao = int(input("\nEscolha a categoria: "))
             if opcao != 1 and opcao != 2 and opcao != 3:
@@ -53,15 +51,15 @@ class CategoriaEscolha:
 
             if opcao == 1:
                 categoria_escolhida = "Fruta"
-                flag_categoria = False
+                break
             else:
                 if opcao == 2:
                     categoria_escolhida = "Carro"
-                    flag_categoria = False
+                    break
                 else:
                     if opcao == 3:
                         categoria_escolhida = "Animal"
-                        flag_categoria = False
+                        break
 
         cursor.execute(f'SELECT {categoria_escolhida} FROM Palavras')
         palavras_coluna = cursor.fetchall()
