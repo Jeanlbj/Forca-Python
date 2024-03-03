@@ -1,15 +1,7 @@
 # Forca-Python
 
-º Desenvolvimento do jogo de Forca utilizando Python
+## Sistema de jogo da forca utilizando Python orientado a objetos, integrado ao SQL Server para a base de dados do jogo.
 
-º Criação do sistema atravez de funções em python para uma função principal chamada jogar_forca
+## Opção de escolher a categoria da palavra ou usar uma categoria aleatória buscando esses dados no DB.
 
-º Possibilidade de jogar falando cada letra e também a palavra toda
-
-º Possibilidade de errar ate 6 vezes as letras para acabar o jogo ou a palavra toda
-
-º Função que da uma dica caso não tenha acertado nenhuma letra
-
-º A cada nova rodada ele mostra o estado atual da palavra e as letras que acertou na palavra e a quantidade de erros
-
- 
+## Opção de digitar a letra, a palavra inteira ou pedir uma dica caso não tenha acertado nenhuma letra da palavra, onde revela alguma letra dessa palavra.
