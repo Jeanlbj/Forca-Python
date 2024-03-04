@@ -3,24 +3,21 @@ from Model.Database import Database
 import random
 
 
-
-class CategoriaEscolha:
+class CategoriaEscolha(Database):
 
     def __int__(self):
-        pass
+        super().__init__()
 
     def escolha_aleatoria(self):
 
-        db = Database()
-
-        nomes_colunas = db.execute_query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = "
-                                         "'Palavras'")
+        nomes_colunas = self.execute_query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS "
+                                           "WHERE TABLE_NAME = 'Palavras'")
         colunas = []
         for nome_coluna in nomes_colunas:
             colunas.append(nome_coluna.COLUMN_NAME)
         coluna_escolhida = colunas[random.randint(0, len(colunas) - 1)]
 
-        palavras_coluna = db.execute_query(f'SELECT {coluna_escolhida} FROM Palavras')
+        palavras_coluna = self.execute_query(f'SELECT {coluna_escolhida} FROM Palavras')
         palavras = []
         for palavra in palavras_coluna:
             palavras.append(palavra)
@@ -29,8 +26,6 @@ class CategoriaEscolha:
         return palavra_escolhida
 
     def escolha_categoria(self):
-
-        db = Database()
 
         self.exibir_categorias()
 
@@ -52,7 +47,7 @@ class CategoriaEscolha:
                         categoria_escolhida = "Animal"
                         break
 
-        palavras_coluna = db.execute_query(f'SELECT {categoria_escolhida} FROM Palavras')
+        palavras_coluna = self.execute_query(f'SELECT {categoria_escolhida} FROM Palavras')
         palavras = []
         for palavra in palavras_coluna:
             palavras.append(palavra)
